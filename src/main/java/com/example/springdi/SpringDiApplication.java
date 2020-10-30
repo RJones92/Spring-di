@@ -14,6 +14,7 @@ public class SpringDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
 
+		System.out.println("-----------Primary bean greeting service---------------");
 		MyController myController = (MyController) ctx.getBean("myController");
 		System.out.println(myController.sayHello());
 
