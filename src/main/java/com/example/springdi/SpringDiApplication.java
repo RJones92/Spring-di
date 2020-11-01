@@ -1,9 +1,6 @@
 package com.example.springdi;
 
-import com.example.springdi.controllers.ConstructorInjectedController;
-import com.example.springdi.controllers.MyController;
-import com.example.springdi.controllers.PropertyInjectedController;
-import com.example.springdi.controllers.SetterInjectedController;
+import com.example.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,9 +11,17 @@ public class SpringDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
 
+		System.out.println("\r");
+		System.out.println("++++++++++++++ PROFILES ++++++++++++++++++++");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.getGreeting());
+
+		System.out.println("\r");
+		System.out.println("+++++++++++++++ DEPENDENCY INJECTION +++++++++++++++");
+
 		System.out.println("-----------Primary bean greeting service---------------");
 		MyController myController = (MyController) ctx.getBean("myController");
-		System.out.println(myController.sayHello());
+		System.out.println(myController.getGreeting());
 
 		System.out.println("---------Property based injector------------------");
 		PropertyInjectedController propertyInjectedController =

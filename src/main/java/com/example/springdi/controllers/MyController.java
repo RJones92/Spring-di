@@ -12,7 +12,7 @@ public class MyController {
         this.greetingService = greetingService;
     }
 
-    public String sayHello(){
+    public String getGreeting(){
         return greetingService.sayGreeting();
     }
 }
